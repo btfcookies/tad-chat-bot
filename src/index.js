@@ -3,7 +3,11 @@ const BOT_NAME = process.env.BOT_NAME || 'my-bot';
 const FORUM = process.env.FORUM || 'general-discussion';
 
 const readline = require('readline');
+const { json } = require('stream/consumers');
 const rl = readline.createInterface({input: process.stdin, output: process.stdout});
+
+console.log(JSON.stringify(BOT_NAME) + " is active in forum " + JSON.stringify(FORUM));
+console.log('send a message and hit enter')
 
 async function sendMessage(text) {
     const res = await fetch(`${BASE_URL}/messages`, {
@@ -19,8 +23,7 @@ async function sendMessage(text) {
     return data;
 }
 
-sendMessage('test')
-    .then(() => console.log('success'))
+sendMessage('BOT ' + JSON.stringify(BOT_NAME) + ' has joined the chat')
     .catch((error) => console.error('error: ', error.message));
 
 rl.on('line', async (line) =>{
