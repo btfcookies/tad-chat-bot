@@ -7,6 +7,6 @@
   "type": "commonjs",
   "main": "script.js",
   "scripts": {
-    "start": ""
+    "start": "node src/index.js"
   }
 }
